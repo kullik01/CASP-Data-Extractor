@@ -2,6 +2,7 @@
 This file contains the UML diagram for the CASP-Data-Extractor
 
 ## PlantUML code
+```
 @startuml
 
 enum Metrics {
@@ -19,18 +20,18 @@ struct Casp {
 - name: str
 - data_url: str
 - winner: ?
-- metric: [Metrics] // 1-8
-- targets: [str] // amount of targets
+- metric: List[Metrics] // 1-8
+- targets: List[str] // amount of targets
 - groups: HashMap[group_name: str, Group]
 + calculate_winner() -> ?
   }
 
 struct Group {
-- models: HashMap[target_name: str, List[Model]]
+- models: Dict[target_name: str, List[Model]]
   }
 
 struct Model {
-- metrics: HashMap[Metrics, float]
+- metrics: Dict[Metrics, float]
   }
 
 /'
@@ -48,3 +49,4 @@ Casp *-- Group
 Group *-- Model
 Model *-- Metrics
 @enduml
+```
