@@ -5,17 +5,6 @@ import os
 import io
 
 
-def download_url(url) -> str:
-  """Download the given url."""
-  try:
-    response = requests.get(url)
-    response.raise_for_status()
-  except Exception as e:
-    print(f"Error processing {url}: {str(e)}")
-    exit(1)
-  return response.text
-
-
 def parse_summary_file(file_content: str) -> pd.DataFrame:
   """Parse the summary file into a pandas DataFrame.
 
